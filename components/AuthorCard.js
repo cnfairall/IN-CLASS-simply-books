@@ -8,15 +8,15 @@ function AuthorCard({ authorObj }) {
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>
       <Card.Body>
-        <Card.Title>{authorObj.first_name} {authorObj.last_name}</Card.Title>
-        <p className="card-text bold">{authorObj.favorite && <span>FAVORITE<br /></span> } </p>
-        <p className="card-text bold">{authorObj.email}</p>
+        <Card.Title>{authorObj?.first_name} {authorObj?.last_name}</Card.Title>
+        <p className="card-text bold">{authorObj?.favorite && <span>FAVORITE<br /></span> } </p>
+        <p className="card-text bold">{authorObj?.email}</p>
         {/* DYNAMIC LINK TO VIEW THE BOOK DETAILS  */}
-        <Link href={`/author/${authorObj.firebaseKey}`} passHref>
+        <Link href={`/author/${authorObj?.firebaseKey}`} passHref>
           <Button variant="primary" className="m-2">VIEW</Button>
         </Link>
         {/* DYNAMIC LINK TO EDIT THE BOOK DETAILS  */}
-        <Link href={`/author/edit/${authorObj.firebaseKey}`} passHref>
+        <Link href={`/author/edit/${authorObj?.firebaseKey}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>
         {/* <Button variant="danger" onClick={deleteThisAuthor} className="m-2">
