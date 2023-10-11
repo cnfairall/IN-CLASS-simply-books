@@ -98,7 +98,7 @@ function BookForm({ obj }) {
           name="author_id"
           onChange={handleChange}
           className="mb-3"
-          value={obj.author_id} // FIXME: modify code to remove error
+          value={formInput.author_id}
           required
         >
           <option value="">Select an Author</option>
