@@ -6,15 +6,6 @@ import { useAuth } from '../utils/context/authContext';
 export default function User() {
   const { user } = useAuth();
 
-  User.propTypes = {
-    user: PropTypes.shape({
-      displayName: PropTypes.string,
-      imageURL: PropTypes.string,
-      email: PropTypes.string,
-      firebaseKey: PropTypes.string,
-    }).isRequired,
-  };
-
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>
       <Card.Img variant="top" src={user.imageURL} alt={user.displayName} style={{ height: '400px' }} />
@@ -25,3 +16,12 @@ export default function User() {
     </Card>
   );
 }
+
+User.propTypes = {
+  user: PropTypes.shape({
+    displayName: PropTypes.string,
+    imageURL: PropTypes.string,
+    email: PropTypes.string,
+    firebaseKey: PropTypes.string,
+  }).isRequired,
+};

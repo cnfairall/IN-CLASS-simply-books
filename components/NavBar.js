@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import {
-  Navbar, Container, Nav,
+  Navbar, Container, Nav, Button
 } from 'react-bootstrap';
 
 export default function NavBar() {
@@ -33,6 +33,7 @@ export default function NavBar() {
             <Link passHref href="/profile">
               <Nav.Link>Profile</Nav.Link>
             </Link>
+            <Button className="btn btn-danger"> Sign Out</Button>
           </Nav>
         </Navbar.Collapse>
       </Container>
