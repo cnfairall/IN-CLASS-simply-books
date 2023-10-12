@@ -15,6 +15,7 @@ function AuthorCard({ authorObj, onUpdate }) {
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>
       <Card.Body>
+        <Card.Img variant="top" src={authorObj.image} alt={authorObj.last_name} style={{ height: '400px' }} />
         <Card.Title>{authorObj?.first_name} {authorObj?.last_name}</Card.Title>
         <p className="card-text bold">{authorObj?.favorite && <span>💛<br /></span> } </p>
         <p className="card-text bold">{authorObj?.email}</p>
@@ -38,6 +39,7 @@ AuthorCard.propTypes = {
   authorObj: PropTypes.shape({
     first_name: PropTypes.string,
     last_name: PropTypes.string,
+    image: PropTypes.string,
     favorite: PropTypes.bool,
     email: PropTypes.string,
     firebaseKey: PropTypes.string,

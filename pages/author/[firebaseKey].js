@@ -17,12 +17,12 @@ export default function ViewAuthor() {
   useEffect(() => {
     getAuthorDetails();
   }, []);
-  console.warn(authorDetails);
 
   return (
     <>
       <div className="mt-5 d-flex flex-wrap">
         <div className="text-white ms-5 details">
+          <img src={authorDetails.image} alt={authorDetails.last_name} style={{ height: '400px' }} />
           <h5>
             {authorDetails?.first_name} {authorDetails?.last_name}
             {authorDetails?.favorite ? ' 🤍' : ''}

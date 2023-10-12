@@ -11,6 +11,7 @@ const initialState = {
   first_name: '',
   last_name: '',
   email: '',
+  image: '',
   favorite: false,
 };
 
@@ -72,7 +73,18 @@ function AuthorForm({ obj }) {
         />
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingInput3" label="Email" className="mb-3">
+      <FloatingLabel controlId="floatingInput3" label="Author Image" className="mb-3">
+        <Form.Control
+          type="url"
+          placeholder="Enter an image URL"
+          name="image"
+          value={formInput.image}
+          onChange={handleChange}
+          required
+        />
+      </FloatingLabel>
+
+      <FloatingLabel controlId="floatingInput4" label="Email" className="mb-3">
         <Form.Control
           type="text"
           placeholder="Enter email"
@@ -107,6 +119,7 @@ AuthorForm.propTypes = {
   obj: PropTypes.shape({
     first_name: PropTypes.string,
     last_name: PropTypes.string,
+    image: PropTypes.string,
     email: PropTypes.string,
     favorite: PropTypes.bool,
     firebaseKey: PropTypes.string,
