@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { useAuth } from '../../utils/context/authContext';
-import { createOrder, updateOrder } from '../../api/orderData';
+import { createOrder, getOrders, updateOrder } from '../../api/orderData';
 
 const initialState = {
   customer_name: '',
@@ -15,6 +15,10 @@ export default function OrderForm({ orderObj }) {
   const { user } = useAuth();
   const [formInput, setFormInput] = useState({ ...initialState, uid: user.uid });
   const router = useRouter();
+
+  useEffect(() => {
+    if (orderObj.firebaseKey) setFormInput(orderObj);
+  }, [orderObj, user]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -72,8 +76,7 @@ export default function OrderForm({ orderObj }) {
             onChange={handleChange}
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Submit Order
+        <Button variant="primary" type="submit">{orderObj.firebaseKey ? 'Update' : 'Create'} Order
         </Button>
       </Form>
     </>
