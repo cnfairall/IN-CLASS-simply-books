@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { useAuth } from '../../utils/context/authContext';
-import { createOrder, getOrders, updateOrder } from '../../api/orderData';
+import { createOrder, updateOrder } from '../../api/orderData';
 
 const initialState = {
   customer_name: '',
