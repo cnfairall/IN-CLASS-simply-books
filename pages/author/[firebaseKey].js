@@ -30,9 +30,10 @@ export default function ViewAuthor() {
           Author Email: <a href={`mailto:${authorDetails?.email}`}>{authorDetails?.email}</a>
         </div>
       </div>
-      <div>{authorDetails.books?.map((book) => (
-        <BookCard key={book.firebaseKey} bookObj={book} onUpdate={getAuthorDetails} />
-      ))}
+      <div className="d-flex flex-wrap">
+        {authorDetails.books?.map((book) => (
+          <BookCard key={book.firebaseKey} bookObj={book} onUpdate={getAuthorDetails} />
+        ))}
       </div>
     </>
   );
